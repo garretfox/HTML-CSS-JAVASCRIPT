@@ -1,5 +1,7 @@
-var numSquares = 6;
-var colors = generateRandomColors(numSquares);
+//Initialize numSquares to 6 
+//to generate full random color array 
+var numSquares              = 6;
+var colors                  = generateRandomColors(numSquares);
 var CorrectIncorrectDisplay = document.querySelector("#CorrectIncorrectDisplay");
 var pickedColor  			= pickColor();
 var colorDisplay 			= document.getElementById("colorDisplay");
@@ -7,16 +9,20 @@ var squares 	 			= document.querySelectorAll(".square");
 var h1 						= document.querySelector("#h1");
 var resetButton             = document.getElementById("reset");
 var modeButtons 		    = document.querySelectorAll(".mode");
+
 for(var i = 0; i < modeButtons.length; i++)
 {
 	modeButtons[i].addEventListener("click", function(){
 		modeButtons[0].classList.remove("selected");
 		modeButtons[1].classList.remove("selected");
 		this.classList.add("selected");
+		//Tertiary operator to check if easy mode is selected vs hard mode
+		// and change numSquares to appropriate mode
 		this.textContent === "Easy" ?  numSquares  = 3: numSquares = 6;
 		reset();
 	});
 }
+//Reset UI
 function reset(){
 		CorrectIncorrectDisplay.textContent = "";
 		colors 								= generateRandomColors(numSquares);
@@ -33,15 +39,18 @@ function reset(){
 			}
 		}
 	h1.style.backgroundColor			 = "steelblue";	
-}	
+}
+
 resetButton.addEventListener("click", function()
 {
 reset();
 });
+//**************************Main UI Logic***************************
 for(var i= 0; i < squares.length; i++)
 {     
+	//Assign each square a color from color array
 	squares[i].style.backgroundColor = colors[i];
-
+    //Check if clicked square is correct upon click
 	squares[i].addEventListener("click",function(){
 		var clickedColor = this.style.backgroundColor;
 		if(this.style.backgroundColor === pickedColor)
@@ -59,7 +68,8 @@ for(var i= 0; i < squares.length; i++)
 		}
 	});		
 }
-
+//******************************************************************
+//Reset colors of squares to new random colors
 function changeColors(color)
 {
 	 for(var i =0; i< squares.length; i++)
@@ -67,13 +77,13 @@ function changeColors(color)
 	squares[i].style.backgroundColor = color;
 	 }
 }
-
+//Picks a random color to be the "picked" color to be found
 function pickColor()
 {
 	var random = Math.floor(Math.random() * colors.length);
 	return colors[random];	
 }
-
+//Generate random colors array
 function generateRandomColors(num)
 {
 	var arr = [];
@@ -84,7 +94,7 @@ function generateRandomColors(num)
 	}
 	return arr;
 }
-
+//Generate random color
 function randomColor()
 {
 	var R = Math.floor(Math.random() * 256);
@@ -93,6 +103,8 @@ function randomColor()
 	return("rgb(" + R + ", " + G + ", " + B + ")");
 }
 
+
+//************REFACTORED CODE********************
 // easyButton.addEventListener("click", function(){
 // numSquares = 3;
 // h1.style.backgroundColor = "steelblue";
