@@ -1,0 +1,14 @@
+body{
+	background-color: grey;
+	font-family: Arial;
+}
+
+button{
+	border-radius: 70%;
+	bakcground-color:#6b6b6b;
+}
+
+.container{
+	margin: auto;
+	text-align: center;
+}
