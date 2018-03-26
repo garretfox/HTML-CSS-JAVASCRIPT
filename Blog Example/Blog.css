@@ -1,0 +1,27 @@
+body{
+	  max-width: 700px;
+	      width: 80%;
+	font-family: Raleway;
+	     margin: 20px auto;
+	     border: solid 20px #d9d9d9;
+}
+hr{
+	 border-top: 2px solid #d9d9d9;
+	      width: 95%;
+	/*margin: 0 5% 0 5%;*/
+}
+h1{
+   padding-left: 20px;
+}
+p{
+   padding-left: 20px;
+}
+.FirstParagraphStyle{
+	border-left: solid 5px #d9d9d9;
+	margin-left: 20px;
+   padding-left: 5px;
+}
+.date{
+	    padding: 20px 20px 20px 20px;
+	      color: #6699ff;
+}
